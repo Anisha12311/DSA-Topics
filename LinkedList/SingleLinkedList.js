@@ -101,15 +101,26 @@ function deleteAtPosition(head, position) {
   return head;
 }
 
+function deleteList(head) {
+  let curr = head;
+  while (curr) {
+    let temp = curr.next;
+    curr.next = null;
+    curr = temp;
+  }
+  return null;
+}
 
-function deleteList(head){
-    let curr = head
-    while(curr){
-        let temp = curr.next
-        curr.next = null
-        curr = temp
-    }
-    return null
+function reverse(head) {
+  let curr = head;
+  let prev = null;
+  while (curr != null) {
+    let temp = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = temp;
+  }
+  return prev;
 }
 
 function traverse(head) {
@@ -130,6 +141,8 @@ root = append(root, 50);
 // root = insertAtPosition(root, 45, 3);
 // root = deleteAtFirst(root);
 // root = deleteAtEnd(root);
-root = deleteAtPosition(root, 4);
-root = deleteList(root)
+// root = deleteAtPosition(root, 4);
+// root = deleteList(root);
+
+root = reverse(root);
 traverse(root);
